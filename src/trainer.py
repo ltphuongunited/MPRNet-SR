@@ -366,8 +366,9 @@ class Trainer:
         torch.save(checkpoint, file_path)
 
     def checkpoint_load(self) -> dict:
-        checkpoint_path = f"{self.config.model_folder}checkpoints/"
-
+        # checkpoint_path = f"{self.config.model_folder}checkpoints/"
+        checkpoint_path = f"{self.config.model_folder}"
+        
         # if the folder with checkpoints exists and contains the checkpoint file
         if os.path.isdir(checkpoint_path):
             checkpoint_file_path = f"{checkpoint_path}{self.config.checkpoint_file}.pt"

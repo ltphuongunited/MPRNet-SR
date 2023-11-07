@@ -83,8 +83,11 @@ class TrainDataset(data.Dataset):
         # extract the LR images from the LR folder
         for scale in self.scales:
             # extract the LR image for the current scale from the LR folder
-            lr_image_path = os.path.join(self.dataset_path, "lr", self.degradation, "x" + str(scale),
-                                         file_name)
+            # lr_image_path = os.path.join(self.dataset_path, "lr", self.degradation, "X" + str(scale),
+            #                              file_name)
+            temp_name = file_name.split('.')[0] + "x" + str(scale) + '.png'
+            lr_image_path = os.path.join(self.dataset_path, "lr", "X" + str(scale),
+                                         temp_name)
             lr_image = io.imread(lr_image_path)
 
             # extract lr and hr patches
@@ -184,8 +187,9 @@ class ValidationDataset(data.Dataset):
         hr_image = io.imread(hr_image_path)
 
         # extract the LR image for the current scale from the LR folder
-        lr_image_path = os.path.join(self.dataset_path, "lr", self.degradation, "x" + str(self.scale),
-                                     file_name)
+        temp_name = file_name.split('.')[0] + "x" + str(self.scale) + '.png'
+        lr_image_path = os.path.join(self.dataset_path, "lr", "X" + str(self.scale),
+                                     temp_name)
         lr_image = io.imread(lr_image_path)
 
         # define the output tuple as empty

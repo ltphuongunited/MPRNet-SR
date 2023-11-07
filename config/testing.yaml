@@ -9,7 +9,7 @@ test_dataset:
 testing:
   mode: model
   model: MultiPathResidualNetwork
-  model_folder: /Users/pierclgr/PycharmProjects/ML4CV/trained_models/
+  model_folder: trained_models/
   output_model_file: mprnet_final_model
 wandb:
   logging: false # true

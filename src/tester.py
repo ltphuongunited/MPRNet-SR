@@ -169,8 +169,10 @@ class Tester:
     def load(self, filename: str) -> None:
         filename = f"{filename}.pt"
         trained_model_path = self.config.testing.model_folder
+        print(trained_model_path)
         if os.path.isdir(trained_model_path):
             file_path = f"{trained_model_path}{filename}"
+            file_path = 'trained_models/mprnet_final_model.pt'
             if os.path.isfile(file_path):
                 print(f"Loading model from {file_path}...")
                 weights = torch.load(file_path, map_location=torch.device("cpu"))
@@ -188,6 +190,7 @@ def main(config: DictConfig):
     if config.seed:
         set_seeds(config.seed)
 
+    config.wandb.logging = False
     # create tester with the given testing configuration
     tester = Tester(config)
 

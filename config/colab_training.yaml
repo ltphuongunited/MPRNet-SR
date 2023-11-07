@@ -1,5 +1,5 @@
 train_dataset:
-  path: /content/MPRNet-SR/data/div2k/train/
+  path: data/train/
   shuffle: true
   num_workers: 2
   pin_memory: true
@@ -12,7 +12,8 @@ train_dataset:
     - 4
   degradation: bicubic
 val_dataset:
-  path: /content/MPRNet-SR/data/div2k/validation
+  # path: data/valid/
+  path: data/train/
   shuffle: false
   num_workers: 1
   pin_memory: true
@@ -40,7 +41,7 @@ optimizer:
     - 0.999
   eps: 0.00000001
 clip: 10 # null
-model_folder: /content/MPRNet-SR/trained_models/
+model_folder: trained_models/
 output_model_file: mprnet_final_model
 checkpoint_every: 2000
 load_checkpoint: true
